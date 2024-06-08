@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
 	const navigate = useNavigate();
+	const user = JSON.parse(localStorage.getItem("user"));
+	console.log({ user });
 
 	const handleLogout = () => {
 		localStorage.removeItem("token");
@@ -28,6 +30,7 @@ const Navbar = () => {
 						Contact
 					</Link>
 					<div className="mt-auto">
+						{user && <p className="">{user.email}</p>}
 						<button onClick={handleLogout} className="w-full text-left block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100">
 							Logout
 						</button>

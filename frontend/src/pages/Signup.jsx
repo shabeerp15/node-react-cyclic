@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SignupPage = () => {
 	const [email, setEmail] = useState("");
@@ -9,6 +9,13 @@ const SignupPage = () => {
 	const [error, setError] = useState("");
 
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		const token = localStorage.getItem("token");
+		if (token) {
+			navigate("/");
+		}
+	}, [navigate]);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -24,6 +31,7 @@ const SignupPage = () => {
 			const token = response.data.token;
 			if (token) {
 				localStorage.setItem("token", token);
+				localStorage.setItem("user", JSON.stringify(response.data.user));
 				navigate("/");
 			}
 		} catch (error) {

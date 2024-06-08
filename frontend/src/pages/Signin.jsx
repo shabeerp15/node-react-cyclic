@@ -26,6 +26,7 @@ const Signin = () => {
 			const token = response.data.token;
 			if (token) {
 				localStorage.setItem("token", token);
+				localStorage.setItem("user", JSON.stringify(response.data.user));
 				navigate("/");
 			}
 		} catch (error) {
