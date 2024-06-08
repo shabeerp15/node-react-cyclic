@@ -32,7 +32,7 @@ const Users = () => {
 	}, []);
 
 	const handleSort = () => {
-		const sortedUsers = [...users].sort((a, b) => (!sorted ? b.id - a.id : a.id - b.id));
+		const sortedUsers = [...users].sort((a, b) => (!sorted ? b._id - a._id : a._id - b._id));
 		setUsers(sortedUsers);
 		setSorted(!sorted);
 	};
@@ -44,28 +44,17 @@ const Users = () => {
 				<thead>
 					<tr className="text-left border border-gray-300 p-g">
 						<th onClick={handleSort}>ID</th>
-						<th>Name</th>
-						<th>Username</th>
 						<th>Email</th>
-						<th>Phone</th>
-						<th>Website</th>
-						<th>Company</th>
 					</tr>
 				</thead>
 				<tbody>
-					{Loading && <td>Loading...</td>}
 					{!Loading &&
 						users?.map((user) => (
-							<tr key={user.id} className="">
-								<td>{user.id}</td>
+							<tr key={user._id} className="">
+								<td>{user._id}</td>
 								<td>
-									<Link to={`/users/${user.id}`}>{user.name}</Link>
+									<Link to={`/users/${user._id}`}>{user.email}</Link>
 								</td>
-								<td>{user.username}</td>
-								<td>{user.email}</td>
-								<td>{user.phone}</td>
-								<td>{user.website}</td>
-								<td>{user.company.name}</td>
 							</tr>
 						))}
 				</tbody>

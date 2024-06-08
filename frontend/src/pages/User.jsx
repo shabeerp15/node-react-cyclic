@@ -34,22 +34,8 @@ const User = () => {
 			</button>
 			{user && (
 				<div>
-					<h2>Name: {user.name}</h2>
-					<h2>Username: {user.username}</h2>
+					<h2>ID: {user._id}</h2>
 					<h2>Email: {user.email}</h2>
-					<h2>Phone: {user.phone}</h2>
-					<h2>
-						Address:
-						<div>
-							{user.address.street}, {user.address.suite}, {user.address.city}, {user.address.zipcode}
-						</div>
-					</h2>
-					<h2>
-						Company:
-						<div>
-							{user.company.name}, {user.company.catchPhrase}, {user.company.bs}
-						</div>
-					</h2>
 				</div>
 			)}
 		</div>

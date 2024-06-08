@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
 	const navigate = useNavigate();
 	const user = JSON.parse(localStorage.getItem("user"));
-	console.log({ user });
 
 	const handleLogout = () => {
 		localStorage.removeItem("token");
@@ -13,7 +12,7 @@ const Navbar = () => {
 
 	return (
 		<div>
-			<div className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 h-screen flex flex-col">
+			<div className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded h-screen flex flex-col">
 				<h1 className="text-3xl font-bold underline">Navbar</h1>
 
 				<nav className="flex flex-col flex-1 mt-4 ">
