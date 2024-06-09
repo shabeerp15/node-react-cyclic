@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 require('dotenv').config()
 
 const DB_CONNECTION = "mongodb://localhost:27017/testdb";
-// const DB_CONNECTION = "mongodb+srv://shabeerp15:luBtRf1joS7ojeyR@cluster0.1imrkuv.mongodb.net/node-cyclic"
 const db_connect = async () => {
     try {
         const conn = await mongoose.connect(DB_CONNECTION);
@@ -19,12 +18,10 @@ const db_connect = async () => {
 
 db_connect();
 
-
 const router = express.Router();
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'frontend/build')))
-
 
 app.use('/api', router);
 
@@ -43,7 +40,6 @@ modules.forEach((moduleName) => {
 });
 
 app.get('*', (req, res) => {
-    console.log("first", path.join(__dirname, 'frontend/build', 'index.html'))
     res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
 });
 
