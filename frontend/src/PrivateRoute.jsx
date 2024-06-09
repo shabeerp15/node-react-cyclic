@@ -14,10 +14,10 @@ const PrivateRoute = () => {
 
 	return (
 		<div className="flex">
-			<div className="flex-grow-0 flex-shrink-0 w-3/12 h-screen shadow-md">
+			<div className="flex-grow-0 flex-shrink-0 w-2/12 h-screen shadow-md">
 				<Navbar />
 			</div>
-			<div className="flex-grow flex-shrink-0 w-9/12 h-screen p-5">
+			<div className="flex-grow flex-shrink-0 w-10/12 h-screen p-5">
 				<Outlet />
 			</div>
 		</div>
