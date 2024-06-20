@@ -3,6 +3,7 @@ const service = require("./service")
 const getUsers = async (req, res) => {
     try {
 
+
         // const users = await fetch('https://jsonplaceholder.typicode.com/users')
         const users = await service.getUsers()
         res.json({ users: users })
