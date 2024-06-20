@@ -7,6 +7,10 @@ const Users = () => {
 
 	const { data, loading } = useAxios({ url: "/api/users" });
 
+	if (loading) {
+		return <div>Loading...</div>;
+	}
+
 	return (
 		<div>
 			<h1 className="text-3xl font-bold mb-4">Users List</h1>
