@@ -8,6 +8,7 @@ require('dotenv').config()
 
 // const DB_CONNECTION = "mongodb://localhost:27017/testdb";
 const DB_CONNECTION = process.env.MONGO_URI;
+console.log("DB_CONNECTION", DB_CONNECTION)
 const db_connect = async () => {
     try {
         const conn = await mongoose.connect(DB_CONNECTION);
