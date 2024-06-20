@@ -23,15 +23,15 @@ const useAxios = ({ url, method = "get", body }) => {
                 });
                 setData(response.data);
                 setError(null);
+                setLoading(setTimeout(() => setLoading(false), 1000));
             } catch (err) {
                 setError(err);
                 setData(null);
+                setLoading(false);
                 if (err.response.statusText === "Unauthorized") {
                     localStorage.removeItem("token");
                     navigate("/signin");
                 }
-            } finally {
-                setLoading(false);
             }
         };
 
