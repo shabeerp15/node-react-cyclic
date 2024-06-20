@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import { Outlet, useNavigate } from "react-router-dom";
+import NavBar2 from "./components/NavBar2";
 
 const PrivateRoute = () => {
 	const navigate = useNavigate();
@@ -17,8 +18,11 @@ const PrivateRoute = () => {
 			<div className="flex-grow-0 flex-shrink-0 w-2/12 h-screen shadow-md">
 				<Navbar />
 			</div>
-			<div className="flex-grow flex-shrink-0 w-10/12 h-screen p-5">
-				<Outlet />
+			<div className="flex-grow flex-shrink-0 w-10/12 h-scree">
+				<NavBar2 />
+				<div className="n p-5">
+					<Outlet />
+				</div>
 			</div>
 		</div>
 	);
